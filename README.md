@@ -22,13 +22,20 @@ Use couchbase docker image to start the couchbase DB. Official Docker image for 
 6. `./gradlew bootRun` or `java -jar ./build/libs/stats-ai*.jar`
 
 
+### Sample API
+
+Method | API | Request | Response
+------ | --- | ------- | --------
+GET | api/v1/stats | localhost:8080/api/v1/stats |  ```[{"id":"statsai::1","name":"TESLA","stockId":"TSLA","suggestion":"BUY","updates":[]},{"id":"statsai::2","name":"TCS","stockId":"TCS","suggestion":"BUY","updates":[]}]```
+GET | api/v1/stats/{name} | localhost:8080/api/v1/stats/TCS | `{"id":"statsai::2","name":"TCS","stockId":"TCS","suggestion":"BUY","updates":[]}`
+POST | api/v1/stats | localhost:8080/api/v1/stats   Header: `{"id":"statsai::1","name":"TESLA","stockId":"TSLA","suggestion":"BUY","updates":[` | `{"id":"statsai::1","name":"TESLA","stockId":"TSLA","suggestion":"BUY","updates":[`
+
+
+
 #### Pending task
 * unit test
 * add logback-spring and access
 * gitlab-ci or jenkins pipeline
 * Openshift deploy config setup
 * integration test case
- 
-
-
  
